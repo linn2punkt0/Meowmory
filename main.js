@@ -1,20 +1,25 @@
-const images =
-  // Funktion randomImage() för att slumpa fram en bild
+const images = ["./images/Image1.jpg", "./images/Image2.jpg"];
 
-  // function getRandomImage(imgAr, path) {
-  //     path = path || 'images/'; // default path here
-  //     var num = Math.floor( Math.random() * imgAr.length );
-  //     var img = imgAr[ num ];
-  //     var imgStr = '<img src="' + path + img + '" alt = "">';
-  //     document.write(imgStr); document.close();
-  // }
+// Funktion randomImage() för att slumpa fram en bild
 
-  function randomImage(array, path) {
-    const num = Math.floor(Math.random() * array.length);
-    const img = array[num];
-    const imagePath = path + img;
-    return imagePath;
-  };
+// function getRandomImage(imgAr, path) {
+//     path = path || 'images/'; // default path here
+//     var num = Math.floor( Math.random() * imgAr.length );
+//     var img = imgAr[ num ];
+//     var imgStr = '<img src="' + path + img + '" alt = "">';
+//     document.write(imgStr); document.close();
+// }
+
+function randomImage(images) {
+  const cards = document.querySelectorAll(".card");
+  cards.forEach(card => {
+    const num = Math.floor(Math.random() * images.length);
+    const img = images[num];
+    card.style.backgroundImage = `url(${img})`;
+  });
+}
+
+randomImage(images);
 
 // Vänd bild när man klickar på den
 
