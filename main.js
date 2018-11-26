@@ -13,48 +13,54 @@ const images = [
 
 // Funktion randomImage() för att slumpa fram en bild
 
-function randomImage(images) {
+// function randomImage(images) {
+//   const cards = document.querySelectorAll(".card");
+//   const double = [...images, ...images];
+//   cards.forEach((card, i) => {
+//     const num = Math.floor(Math.random() * double.length);
+//     const img = double[num];
+//     card.style.backgroundImage = `url(${img})`;
+//     double.splice(i, 1);
+//   });
+// }
+
+function shuffleImages(imageArray) {
   const cards = document.querySelectorAll(".card");
-  const double = [...images, ...images];
+  const memoryCards = imageArray.concat(imageArray);
+  memoryCards.sort(() => 0.5 - Math.random());
   cards.forEach((card, i) => {
-    const num = Math.floor(Math.random() * double.length);
-    const img = double[num];
-    card.style.backgroundImage = `url(${img})`;
-    double.splice(i, 1);
+    card.style.backgroundImage = `url(${memoryCards[i]})`;
   });
 }
-
-randomImage(images);
-
-// Testa sort maath.random
+shuffleImages(images);
 
 // Vänd bild när man klickar på den
-function flipCard() {
-  this.classList.toggle("flip");
-}
-const cards = document.querySelectorAll(".card");
-cards.forEach(cards => card.addEventListener("click", flipCard));
+// function flipCard() {
+//   this.classList.toggle("flip");
+// }
+// const cards = document.querySelectorAll(".card");
+// cards.forEach(cards => card.addEventListener("click", flipCard));
 
 // Klickcounter
-function countClicks() {}
+// function countClicks() {}
 
 // Poängcounter
-function points() {}
+// function points() {}
 
-function lookForPair() {
-  // If (card1 === card2) {
-  // Låt de ligga uppvända och lägg till poäng i poäng-counter
-  // }
-  // Else {
-  // Vänd tillbaka dem
-  // }
-  // }
-}
+// function lookForPair() {
+// If (card1 === card2) {
+// Låt de ligga uppvända och lägg till poäng i poäng-counter
+// }
+// Else {
+// Vänd tillbaka dem
+// }
+// }
+// }
 
 // Spara vända kort i en array matcha value 0 mot value 1
-function finnishedPairs() {}
+// function finnishedPairs() {}
 
 // När man fått 10 poäng = "You won!"
 
 // Play again-knapp - Starta om: Kör randomImage() och nollställ poäng-countern och klick-countern
-function reset() {}
+// function reset() {}
