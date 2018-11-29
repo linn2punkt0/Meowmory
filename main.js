@@ -10,36 +10,68 @@ const images = [
   "./images/Image9.jpg",
   "./images/Image10.jpg"
 ];
+let points = 0;
+let clicks = 0;
 
-// Funktion randomImage() för att slumpa fram en bild
-
-// function randomImage(images) {
-//   const cards = document.querySelectorAll(".card");
-//   const double = [...images, ...images];
-//   cards.forEach((card, i) => {
-//     const num = Math.floor(Math.random() * double.length);
-//     const img = double[num];
-//     card.style.backgroundImage = `url(${img})`;
-//     double.splice(i, 1);
-//   });
-// }
+//Shuffle the images and place them in the card divs - DONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+const cards = document.querySelectorAll(".card");
 
 function shuffleImages(imageArray) {
-  const cards = document.querySelectorAll(".card");
   const memoryCards = imageArray.concat(imageArray);
   memoryCards.sort(() => 0.5 - Math.random());
   cards.forEach((card, i) => {
-    card.style.backgroundImage = `url(${memoryCards[i]})`;
+    const cardFront = card.querySelector(".card__front");
+    cardFront.style.backgroundImage = `url(${memoryCards[i]})`;
+    const cardName = `url(${memoryCards[i]})`;
+    card.setAttribute("data-cardname", cardName);
   });
 }
-shuffleImages(images);
 
-// Vänd bild när man klickar på den
-// function flipCard() {
-//   this.classList.toggle("flip");
-// }
-// const cards = document.querySelectorAll(".card");
-// cards.forEach(cards => card.addEventListener("click", flipCard));
+// Vänd bild när man klickar på den - DONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+let hasFlippedCard = false;
+let card1, card2;
+
+for (let i = 0; i < cards.length; i++) {
+  cards[i].addEventListener("click", flipCard);
+}
+// const flippedCards = document.querySelectorAll(".card.flipped"); Behövs inte längre?
+
+function flipCard() {
+  this.classList.toggle("flipped");
+
+  // Hit funkar det................................Fast "flipped" togglas inte, bara aktiveras
+
+  if (!hasFlippedCard) {
+    hasFlippedCard = true;
+    card1 = this;
+    return;
+  }
+  card2 = this;
+  hasFlippedCard = false;
+  checkForMatch();
+}
+
+function checkForMatch() {
+  if (card1.dataset.cardname === card2.dataset.cardname) {
+    disableCards();
+    points++;
+    console.log(points);
+    return;
+  }
+  unflipCards();
+}
+
+function disableCards() {
+  card1.removeEventListener("click", flipCard);
+  card2.removeEventListener("click", flipCard);
+}
+
+function unflipCards() {
+  setTimeout(() => {
+    card1.classList.remove("flipped");
+    card2.classList.remove("flipped");
+  }, 500);
+}
 
 // Klickcounter
 // function countClicks() {}
@@ -61,6 +93,23 @@ shuffleImages(images);
 // function finnishedPairs() {}
 
 // När man fått 10 poäng = "You won!"
+function youWon() {
+  if (points === 10) {
+    console.log("You won!");
+  }
+}
 
-// Play again-knapp - Starta om: Kör randomImage() och nollställ poäng-countern och klick-countern
-// function reset() {}
+// Reset function - Lägg till: nollställ poäng-countern och klick-countern, nollställ classer
+function reset() {
+  shuffleImages(images);
+  cards.forEach((card, i) => {
+    card.classList.remove("flipped");
+  });
+}
+
+//Reset game when browser reloads - DONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+window.onload = reset();
+
+//Reset game when play-again-button is clicked - DONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+const playAgainButton = document.querySelector("button");
+playAgainButton.addEventListener("click", reset);

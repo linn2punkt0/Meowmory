@@ -32,22 +32,42 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  position: relative;
   transform: scale(1);
   transform-style: preserve-3d;
   transition: transform 0.2s;
+  backface-visibility: hidden;
 }
 
 .card:active {
   transform: scale(0.9);
 }
 
-.card.flip {
+.card.flipped {
   transform: rotateY(180deg);
 }
 
-back-face {
+.card__front,
+.card__back {
+  pointer-events: none;
   backface-visibility: hidden;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
 }
-front-face {
-  transform: rotate(180deg);
+
+.card__front {
+  transform: rotateY(180deg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid lightgrey;
+  z-index: 10;
+  transition: all 0.5 ease;
+}
+
+.card__back {
+  transform: rotateY(0deg);
+  background-color: rgb(26, 26, 26);
 }
