@@ -37,7 +37,7 @@ for (let i = 0; i < cards.length; i++) {
 // const flippedCards = document.querySelectorAll(".card.flipped"); Behövs inte längre?
 
 function flipCard() {
-  this.classList.toggle("flipped");
+  this.classList.add("flipped");
   // "flipped" togglas inte, bara aktiveras
 
   if (!hasFlippedCard) {
