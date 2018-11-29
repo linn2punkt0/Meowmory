@@ -38,8 +38,7 @@ for (let i = 0; i < cards.length; i++) {
 
 function flipCard() {
   this.classList.toggle("flipped");
-
-  // Hit funkar det................................Fast "flipped" togglas inte, bara aktiveras
+  // "flipped" togglas inte, bara aktiveras
 
   if (!hasFlippedCard) {
     hasFlippedCard = true;
@@ -56,9 +55,11 @@ function checkForMatch() {
     disableCards();
     points++;
     console.log(points);
+    checkScore();
     return;
   }
-  unflipCards();
+  // lås pointerEvents om man trycker på två kort
+  flipBackCards();
 }
 
 function disableCards() {
@@ -66,34 +67,26 @@ function disableCards() {
   card2.removeEventListener("click", flipCard);
 }
 
-function unflipCards() {
+function flipBackCards() {
   setTimeout(() => {
     card1.classList.remove("flipped");
     card2.classList.remove("flipped");
-  }, 500);
+  }, 1000);
 }
 
 // Klickcounter
-// function countClicks() {}
+function countClicks() {
+  let clickableCards = document.querySelectorAll(".card");
+  let yourScore = document.querySelector(".points");
+  clickableCards.onclick = function() {
+    clicks++;
+    yourScore.innerHTML = "Your point: " + clicks;
+    console.log(clicks);
+  };
+}
 
-// Poängcounter
-// function points() {}
-
-// function lookForPair() {
-// If (card1 === card2) {
-// Låt de ligga uppvända och lägg till poäng i poäng-counter
-// }
-// Else {
-// Vänd tillbaka dem
-// }
-// }
-// }
-
-// Spara vända kort i en array matcha value 0 mot value 1
-// function finnishedPairs() {}
-
-// När man fått 10 poäng = "You won!"
-function youWon() {
+// När man fått 10 poäng = "You won!" - DONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+function checkScore() {
   if (points === 10) {
     console.log("You won!");
   }
@@ -102,6 +95,8 @@ function youWon() {
 // Reset function - Lägg till: nollställ poäng-countern och klick-countern, nollställ classer
 function reset() {
   shuffleImages(images);
+  let point = 0;
+  let clicks = 0;
   cards.forEach((card, i) => {
     card.classList.remove("flipped");
   });

@@ -1,11 +1,19 @@
 body {
   height: 100vh;
+  margin: 0;
   text-align: center;
+}
+.game-info {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .board {
-  margin: 0 auto;
   width: 80%;
+  margin: 0 auto;
   position: relative;
 }
 
