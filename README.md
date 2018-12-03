@@ -4,7 +4,7 @@
 
 This is a cat-themed memory, a Meowmory.
 
-### Installation:
+## Installation:
 1. Download this repository into htdocs.
 
 2. Open the index.html-file in your browser.
@@ -13,14 +13,14 @@ Or:
   
 2. Start Mamp. Open up this repository in your localhost.
 
-#### Tested in:
+### Tested in:
 Chrome  
 Brave  
 Firefox  
 Safari  
 Opera  
 
-#### User tests:
+### User tests:
 #### Elias Johansson:  
 MacBook  
 Chrome  
