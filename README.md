@@ -10,6 +10,7 @@ This is a cat-themed memory, a Meowmory.
 2. Open the index.html-file in your browser.
 
 Or:  
+  
 2. Start Mamp. Open up this repository in your localhost.
 
 #### Tested in:
