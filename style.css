@@ -1,5 +1,6 @@
 body {
   height: 100vh;
+  width: 100vw;
   top: 0;
   left: 0;
   margin: 0;
@@ -7,6 +8,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .game-info {
   width: 80%;
@@ -21,7 +23,14 @@ body {
   margin: 0 auto;
   position: relative;
 }
-.winner-message {
+
+.board:after {
+  content: "";
+  display: block;
+  padding-bottom: 80%;
+}
+
+.winner {
   width: 80%;
   margin: 0 auto;
   position: absolute;
@@ -29,20 +38,54 @@ body {
   transition: 0.5s;
 }
 
-.winner-message.display {
+.winner.display {
   width: 100%;
   height: 100%;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 10px;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.692);
   z-index: 1;
 }
+.winner-message {
+  color: white;
+  font-size: 50px;
+}
 
-.board:after {
-  content: "";
-  display: block;
-  padding-bottom: 80%;
+.insta {
+  height: 40px;
+  width: 40px;
+  margin: 0;
+  padding: 0;
+  background-image: url("insta.png");
+  background-size: contain;
+}
+
+a {
+  padding-bottom: 1px;
+  text-decoration: none;
+  color: black;
+  border-bottom: dotted black 1.5px;
+}
+
+button {
+  margin: 10px;
+  padding: 5px 15px;
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-size: 20px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
 }
 
 .card-container {

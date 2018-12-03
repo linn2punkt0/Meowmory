@@ -20,11 +20,11 @@ let startTime = null;
 
 // Display current score
 let currentScore = document.querySelector(".points");
-currentScore.innerHTML = " Points: " + points;
+currentScore.innerHTML = "Points: " + points;
 
 // Display number of clicks
 let currentClicks = document.querySelector(".clicks");
-currentClicks.innerHTML = " Clicks: " + clicks;
+currentClicks.innerHTML = "Clicks: " + clicks;
 
 // Display current timer-value
 let currentTime = document.querySelector(".time");
@@ -112,6 +112,10 @@ function checkScore() {
   if (points === 10) {
     clearInterval(interval);
     console.log("You won!");
+    const winner = document.querySelector(".winner");
+    const winnerMessage = document.querySelector(".winner-message");
+    winnerMessage.innerHTML = "You won!";
+    winner.classList.add("display");
   }
 }
 
