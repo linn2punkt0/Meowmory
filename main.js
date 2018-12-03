@@ -108,11 +108,12 @@ function flipBackCards() {
 }
 
 // Checks if you have 10 point and displays winner-message
+const winner = document.querySelector(".winner");
+
 function checkScore() {
   if (points === 10) {
     clearInterval(interval);
     console.log("You won!");
-    const winner = document.querySelector(".winner");
     const winnerMessage = document.querySelector(".winner-message");
     winnerMessage.innerHTML = "You won!";
     winner.classList.add("display");
@@ -135,6 +136,7 @@ function reset() {
   currentScore.innerHTML = " Points: " + points;
   currentClicks.innerHTML = " Clicks: " + clicks;
   currentTime.innerHTML = "Time: " + seconds + " seconds";
+  winner.classList.remove("display");
   cards.forEach((card, i) => {
     card.classList.remove("flipped");
     cards[i].addEventListener("click", flipCard);

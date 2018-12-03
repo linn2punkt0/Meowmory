@@ -5,16 +5,34 @@ body {
   margin: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   font-family: Arial, Helvetica, sans-serif;
 }
+h1 {
+  margin: 10px 0 0 10px 0;
+}
 .game-info {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.game-info > h4 {
+  width: 130px;
+}
+
+.game-info > .points {
+  text-align: end;
+}
+
+.game-info > .clicks {
+  text-align: center;
+}
+
+h4 {
+  margin: 0 0 7px 0;
 }
 
 .board {
@@ -31,6 +49,7 @@ body {
 
 .winner {
   width: 80%;
+  height: 0;
   margin: 0 auto;
   position: absolute;
   z-index: -1;
@@ -71,7 +90,7 @@ a {
 }
 
 button {
-  margin: 10px;
+  margin: 15px;
   padding: 5px 15px;
   background-color: white;
   color: black;
