@@ -1,3 +1,4 @@
+// Image array
 const images = [
   "./images/Image1.jpg",
   "./images/Image2.jpg",
@@ -10,18 +11,22 @@ const images = [
   "./images/Image9.jpg",
   "./images/Image10.jpg"
 ];
+
+// Starting values
 let points = 0;
 let clicks = 0;
 let seconds = 0;
 let startTime = null;
 
-// Show current score
+// Display current score
 let currentScore = document.querySelector(".points");
 currentScore.innerHTML = " Points: " + points;
 
+// Display number of clicks
 let currentClicks = document.querySelector(".clicks");
 currentClicks.innerHTML = " Clicks: " + clicks;
 
+// Display current timer-value
 let currentTime = document.querySelector(".time");
 currentTime.innerHTML = "Time: " + seconds + " seconds";
 
@@ -43,11 +48,11 @@ function shuffleImages(imageArray) {
 let hasFlippedCard = false;
 let card1, card2;
 let hasTwoCards = false;
+let interval = null;
 
 for (let i = 0; i < cards.length; i++) {
   cards[i].addEventListener("click", flipCard);
 }
-let interval = null;
 
 function flipCard() {
   if (!hasTwoCards) {
@@ -71,13 +76,13 @@ function flipCard() {
   }
 }
 
-// Check if cards match, if so: disable them, add points and run checkScore-function to se if you've won
+// Check if cards match, if so: disable them, add points and run checkScore-function to see if you've won
 // If cards do not match: flip them back
 function checkForMatch() {
   if (card1.dataset.cardname === card2.dataset.cardname) {
     disableCards();
     points++;
-    currentScore.innerHTML = " Points: " + points;
+    currentScore.innerHTML = "Points: " + points;
     checkScore();
     hasTwoCards = false;
     return;
@@ -116,7 +121,7 @@ function timer() {
   currentTime.innerHTML = "Time: " + Math.round(time / 1000) + " seconds";
 }
 
-// Resets click-counter, point-counter and removes "flipped"-class
+// Shuffles cards, resets click-counter, point-counter, timer and removes "flipped"-class. Also adds eventListener again.
 function reset() {
   shuffleImages(images);
   clearInterval(interval);
