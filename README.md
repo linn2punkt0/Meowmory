@@ -21,7 +21,7 @@ Safari
 Opera  
 
 #### User tests:
-Elias Johansson:  
+#### Elias Johansson:  
 MacBook  
 Chrome  
 
