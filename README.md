@@ -14,17 +14,17 @@ Or:
 2. Start Mamp. Open up this repository in your localhost.
 
 #### Tested in:
-Chrome
-Brave
-Firefox
-Safari
-Opera
+Chrome  
+Brave  
+Firefox  
+Safari  
+Opera  
 
 #### User tests:
-Elias Johansson:
-MacBook
-Chrome
+Elias Johansson:  
+MacBook  
+Chrome  
 
 #### Isa Areschoug:
-Windows
-Brave & Firefox
+Windows  
+Brave & Firefox  
