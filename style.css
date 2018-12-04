@@ -198,3 +198,28 @@ button:hover {
   background-color: black;
   color: white;
 }
+
+@media screen and (max-width: 450px) {
+  body {
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Gaegu", cursive;
+  }
+  .game-info {
+    display: flex;
+    flex-direction: column;
+  }
+  .game-info > .points {
+    text-align: start;
+  }
+
+  .game-info > .clicks {
+    text-align: start;
+  }
+}
