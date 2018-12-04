@@ -11,7 +11,12 @@ This is a cat-themed memory, a Meowmory.
 
 Or:  
   
-2. Start Mamp. Open up this repository in your localhost.
+2. Start Mamp. Open up this repository in your localhost.  
+  
+Or:  
+  
+2. Go to github-pages-link: https://linn2punkt0.github.io/Meowmory/
+  
 
 ### Tested in:
 Chrome  
