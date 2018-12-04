@@ -13,9 +13,10 @@ Or:
   
 2. Start Mamp. Open up this repository in your localhost.  
   
+    
 Or:  
   
-2. Go to github-pages-link: https://linn2punkt0.github.io/Meowmory/
+1. Go to github-pages-link: https://linn2punkt0.github.io/Meowmory/
   
 
 ### Tested in:
